@@ -118,7 +118,7 @@
       jq
       yq
       ripgrep
-      nerdfonts
+      nerd-fonts.droid-sans-mono
       font-awesome
       waybar
       swaybg
@@ -175,7 +175,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    neovim
+    # neovim
     git
     stow
     tmux

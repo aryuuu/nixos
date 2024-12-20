@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs?ref=release-24.11";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     ghostty = {
       url = "git+ssh://git@github.com/ghostty-org/ghostty";
 
@@ -14,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ghostty, ... }: 
+  outputs = { self, nixpkgs, ghostty, neovim-nightly-overlay, ... }: 
     let 
       system = "x86_64-linux";
       
@@ -36,6 +37,7 @@
             {
               environment.systemPackages = [
                 ghostty.packages.x86_64-linux.default
+                neovim-nightly-overlay.packages.${pkgs.system}.default
               ];
             }
             ./nixos/configuration.nix
