@@ -92,6 +92,13 @@
     "d /etc/openvpn3/configs 0755 root root -"
   ];
 
+  fonts.packages = with pkgs; [
+    fira-code
+    jetbrains-mono
+    d2coding
+    font-awesome
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fatt = {
     isNormalUser = true;
