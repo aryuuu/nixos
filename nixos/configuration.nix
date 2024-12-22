@@ -39,6 +39,10 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    package = pkgs.i3-gaps;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -104,6 +108,9 @@
       nodejs
       brave
       pass-wayland
+      passExtensions.pass-otp
+      passExtensions.pass-update
+      passExtensions.pass-file
       kubectl
       k9s
       terraform
@@ -119,6 +126,7 @@
       yq
       ripgrep
       nerd-fonts.droid-sans-mono
+      jetbrains-mono
       font-awesome
       waybar
       swaybg
@@ -150,6 +158,7 @@
       pulseaudio
       pavucontrol
       awscli2
+      extract_url
     ];
 
     shell = pkgs.fish;
