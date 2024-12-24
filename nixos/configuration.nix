@@ -25,6 +25,12 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.extraHosts = 
+    ''
+      127.0.0.1 localhost
+      ::1 localhost
+      127.0.0.2 nixos
+    '';
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -114,16 +120,18 @@
       zig
       nodejs
       brave
-      pass-wayland
-      passExtensions.pass-otp
-      passExtensions.pass-update
-      passExtensions.pass-file
+      (pass-wayland.withExtensions (ext: [ 
+        ext.pass-otp 
+        ext.pass-update
+        ext.pass-file
+      ]))
       kubectl
       k9s
       terraform
       delta
       telegram-desktop
       dbeaver-bin
+      mongodb-compass
       robo3t
       btop
       fastfetch
@@ -150,6 +158,7 @@
       bluez
       wf-recorder
       gimp
+      lorien
       drawing
       grim
       slurp
@@ -204,6 +213,7 @@
     openvpn3
     psmisc
     brightnessctl
+    libsForQt5.bismuth
   ];
 
   environment.sessionVariables = {
