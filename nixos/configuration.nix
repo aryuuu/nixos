@@ -141,6 +141,7 @@
       yq
       ripgrep
       nerd-fonts.droid-sans-mono
+      nerd-fonts.jetbrains-mono
       jetbrains-mono
       font-awesome
       waybar
