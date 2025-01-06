@@ -101,6 +101,7 @@
   fonts.packages = with pkgs; [
     fira-code
     jetbrains-mono
+    nerd-fonts.jetbrains-mono
     d2coding
     font-awesome
   ];
@@ -176,6 +177,7 @@
       pavucontrol
       awscli2
       extract_url
+      mpv
     ];
 
     shell = pkgs.fish;
