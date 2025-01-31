@@ -13,9 +13,10 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
       inputs.nixpkgs-unstable.follows = "nixpkgs";
     };
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = { self, nixpkgs, ghostty, neovim-nightly-overlay, ... }: 
+  outputs = { self, nixpkgs, ghostty, neovim-nightly-overlay, zen-browser, ... }: 
     let 
       system = "x86_64-linux";
       
@@ -38,6 +39,7 @@
               environment.systemPackages = [
                 ghostty.packages.x86_64-linux.default
                 neovim-nightly-overlay.packages.${pkgs.system}.default
+                zen-browser.packages.${pkgs.system}.default
               ];
             }
             ./nixos/configuration.nix

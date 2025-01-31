@@ -178,6 +178,7 @@
       awscli2
       extract_url
       mpv
+      redli
     ];
 
     shell = pkgs.fish;
