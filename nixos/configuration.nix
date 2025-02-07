@@ -178,6 +178,8 @@
       awscli2
       extract_url
       mpv
+      feh
+      tealdeer
       redli
     ];
 
