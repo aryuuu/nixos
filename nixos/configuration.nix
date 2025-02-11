@@ -25,11 +25,16 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.connectionConfig = {
+    "ipv6.ip6-privacy" = 2;
+    "ipv6.method" = "disabled";
+  };
   networking.extraHosts = 
     ''
       127.0.0.1 localhost
       ::1 localhost
       127.0.0.2 nixos
+      192.53.117.45 linode-aryuuu
     '';
 
   # Set your time zone.
@@ -154,6 +159,7 @@
       dunst
       libnotify
       zathura
+      sioyek
       cliphist
       wl-clipboard
       file
@@ -169,6 +175,7 @@
       python3
       cargo
       ranger
+      ueberzug
       lf
       aws-vault
       chamber
