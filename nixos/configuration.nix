@@ -125,6 +125,7 @@
       go
       zig
       nodejs
+      bun
       brave
       (pass-wayland.withExtensions (ext: [ 
         ext.pass-otp 
@@ -188,6 +189,9 @@
       feh
       tealdeer
       redli
+      wireshark
+      termshark
+      nmap
     ];
 
     shell = pkgs.fish;
