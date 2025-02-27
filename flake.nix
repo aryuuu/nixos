@@ -6,7 +6,7 @@
     # nixpkgs-stable.url = "github:nixos/nixpkgs?ref=release-24.11";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty?ref=v1.0.1";
+      url = "github:ghostty-org/ghostty?ref=v1.1.2";
 
       # NOTE: The below 2 lines are only required on nixos-unstable,
       # if you're on stable, they may break your build
