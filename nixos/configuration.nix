@@ -69,7 +69,7 @@
     powerOnBoot = true;
   };
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -117,7 +117,6 @@
     description = "fatt";
     extraGroups = [ "networkmanager" "wheel" "docker" "video" ];
     packages = with pkgs; [
-      kate
       alacritty
       fzf
       slack
