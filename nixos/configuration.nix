@@ -61,6 +61,13 @@
     variant = "";
   };
 
+  # gaming configs
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  services.xserver.videoDrivers = ["amdgpu"];
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -191,6 +198,7 @@
       wireshark
       termshark
       nmap
+      binwalk
     ];
 
     shell = pkgs.fish;
