@@ -122,7 +122,7 @@
   users.users.fatt = {
     isNormalUser = true;
     description = "fatt";
-    extraGroups = [ "networkmanager" "wheel" "docker" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" "wireshark" ];
     packages = with pkgs; [
       alacritty
       fzf
@@ -217,6 +217,7 @@
   };
 
   programs.direnv.enable = true;
+  programs.wireshark.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
