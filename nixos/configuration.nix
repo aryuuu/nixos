@@ -24,10 +24,13 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
-  networking.networkmanager.connectionConfig = {
-    "ipv6.ip6-privacy" = 2;
-    "ipv6.method" = "disabled";
+  networking.networkmanager = {
+    enable = true;
+    connectionConfig = {
+      "ipv6.ip6-privacy" = 2;
+      "ipv6.method" = "disabled";
+    };
+    wifi.powersave = false;
   };
   networking.extraHosts = 
     ''
