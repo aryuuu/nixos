@@ -38,7 +38,9 @@
       ::1 localhost
       127.0.0.2 nixos
       192.53.117.45 linode-aryuuu
-    '';
+    '' + ''
+
+    ''+ (builtins.readFile ../my-hosts);
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -202,6 +204,7 @@
       termshark
       nmap
       binwalk
+      jujutsu
     ];
 
     shell = pkgs.fish;
