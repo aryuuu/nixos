@@ -14,9 +14,10 @@
       inputs.nixpkgs-unstable.follows = "nixpkgs";
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    mcp-hub.url = "github:ravitemer/mcp-hub";
   };
 
-  outputs = { self, nixpkgs, ghostty, neovim-nightly-overlay, zen-browser, ... }: 
+  outputs = { self, nixpkgs, ghostty, neovim-nightly-overlay, zen-browser, mcp-hub, ... }: 
     let 
       system = "x86_64-linux";
       
@@ -40,6 +41,7 @@
                 ghostty.packages.x86_64-linux.default
                 neovim-nightly-overlay.packages.${pkgs.system}.default
                 zen-browser.packages.${pkgs.system}.default
+                mcp-hub.packages.${pkgs.system}.default
               ];
             }
             ./nixos/configuration.nix

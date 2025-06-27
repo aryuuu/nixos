@@ -205,6 +205,7 @@
       nmap
       binwalk
       jujutsu
+      docker-compose
     ];
 
     shell = pkgs.fish;
