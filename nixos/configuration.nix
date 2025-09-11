@@ -177,7 +177,10 @@
       file
       bluez
       wf-recorder
+      wl-kbptr
       gimp
+      ffmpeg
+      blender
       lorien
       drawing
       grim
