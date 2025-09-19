@@ -54,7 +54,8 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  # services.xserver.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
   services.xserver.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -130,6 +131,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "video" "wireshark" ];
     packages = with pkgs; [
       alacritty
+      ghostty
       fzf
       slack
       postman
