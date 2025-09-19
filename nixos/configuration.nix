@@ -54,7 +54,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
   services.xserver.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -165,7 +165,8 @@
       waybar
       swaybg
       swaylock-fancy
-      rofi-wayland
+      # rofi-wayland # this has been merged into rofi 
+      rofi
       networkmanager_dmenu
       dmenu-wayland
       dunst
@@ -250,7 +251,7 @@
     openvpn3
     psmisc
     brightnessctl
-    libsForQt5.bismuth
+    # libsForQt5.bismuth
   ];
 
   environment.sessionVariables = {
