@@ -212,6 +212,9 @@
       binwalk
       jujutsu
       docker-compose
+
+      amazon-q-cli
+      claude-code
     ];
 
     shell = pkgs.fish;
