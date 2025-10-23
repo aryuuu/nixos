@@ -215,6 +215,7 @@
 
       amazon-q-cli
       claude-code
+      crush
     ];
 
     shell = pkgs.fish;
