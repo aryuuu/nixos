@@ -212,6 +212,7 @@
       binwalk
       jujutsu
       docker-compose
+      croc
 
       amazon-q-cli
       claude-code
