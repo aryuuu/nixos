@@ -213,6 +213,7 @@
       jujutsu
       docker-compose
       croc
+      pre-commit
 
       amazon-q-cli
       claude-code
