@@ -158,7 +158,7 @@
       zed-editor
       discord
       jq
-      yq
+      yq-go
       ripgrep
       nerd-fonts.droid-sans-mono
       nerd-fonts.jetbrains-mono
@@ -214,6 +214,9 @@
       docker-compose
       croc
       pre-commit
+      shellcheck
+      comma
+      hurl
 
       amazon-q-cli
       claude-code
