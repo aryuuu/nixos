@@ -19,6 +19,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+  networking.enableIPv6 = false;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -58,7 +59,7 @@
   services.desktopManager.plasma6.enable = true;
   services.xserver.windowManager.i3 = {
     enable = true;
-    package = pkgs.i3-gaps;
+    package = pkgs.i3;
   };
 
   # Configure keymap in X11
@@ -211,6 +212,7 @@
       nmap
       binwalk
       jujutsu
+      jjui
       docker-compose
       croc
       pre-commit
@@ -220,7 +222,9 @@
 
       amazon-q-cli
       claude-code
-      crush
+      # crush
+
+      asciinema
     ];
 
     shell = pkgs.fish;
