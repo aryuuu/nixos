@@ -219,6 +219,7 @@
       shellcheck
       comma
       hurl
+      net-tools
 
       amazon-q-cli
       claude-code
