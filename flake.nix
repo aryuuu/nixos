@@ -9,9 +9,10 @@
     mcp-hub.url = "github:ravitemer/mcp-hub";
     gitlogue.url = "github:aryuuu/gitlogue-flake";
     opencode.url = "github:anomalyco/opencode";
+    kiro-cli.url = "github:aryuuu/kiro-cli-flake";
   };
 
-  outputs = { self, nixpkgs, neovim-nightly-overlay, zen-browser, mcp-hub, gitlogue, opencode, ... }: 
+  outputs = { self, nixpkgs, neovim-nightly-overlay, zen-browser, mcp-hub, gitlogue, opencode, kiro-cli, ... }: 
     let 
       system = "x86_64-linux";
       
@@ -38,6 +39,7 @@
                 mcp-hub.packages.${pkgs.system}.default
                 gitlogue.packages.${pkgs.system}.default
                 opencode.packages.${pkgs.system}.default
+                kiro-cli.packages.${pkgs.system}.default
               ];
             }
             ./nixos/configuration.nix
