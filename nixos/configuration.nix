@@ -201,6 +201,7 @@
       cargo
       ranger
       ueberzug
+      zbar
       lf
       aws-vault
       chamber
@@ -219,7 +220,10 @@
       binwalk
       jujutsu
       jjui
+      gh
       docker-compose
+      lazydocker
+      ducker
       croc
       pre-commit
       shellcheck
@@ -247,6 +251,19 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+  };
+
+  xdg.portal = {
+    config = {
+      common = {
+        default = [ "hyprland" "gtk" ];
+      };
+      hyprland = {
+        default = [ "hyprland" "gtk" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+      };
+    };
   };
 
   programs.direnv.enable = true;
