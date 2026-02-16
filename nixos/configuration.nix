@@ -138,7 +138,8 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "video" "wireshark" ];
     packages = with pkgs; [
       alacritty
-      ghostty
+      # ghostty
+      # ghostty-bin
       fzf
       slack
       postman
