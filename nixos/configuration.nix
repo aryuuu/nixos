@@ -237,6 +237,7 @@
       # crush
 
       asciinema
+      ngrok
     ];
 
     shell = pkgs.fish;
