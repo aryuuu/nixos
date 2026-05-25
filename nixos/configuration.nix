@@ -4,6 +4,16 @@
 
 { config, pkgs, ... }:
 
+let
+  waybar-patched = (pkgs.waybar.override { cavaSupport = false; }).overrideAttrs (old: {
+    src = pkgs.fetchFromGitHub {
+      owner = "Alexays";
+      repo = "Waybar";
+      rev = "05945748dccce28bf96d26d8f64a9e69a8dd49ba";
+      hash = "sha256-51R3mIt8cLNvh/X5qe9vOqeJCj0U9KRyemVE5y+OhiU=";
+    };
+  });
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -253,7 +263,7 @@
       ]))
 
       # -- Wayland / Desktop --
-      waybar
+      waybar-patched
       swaybg
       swaylock-fancy
       rofi # rofi-wayland has been merged into rofi
