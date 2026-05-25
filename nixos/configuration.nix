@@ -162,6 +162,7 @@
       delta
       telegram-desktop
       dbeaver-bin
+      beekeeper-studio
       mongodb-compass
       robo3t
       btop
