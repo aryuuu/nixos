@@ -384,6 +384,8 @@ in
     };
   };
 
+  services.tailscale.enable = true;
+
   programs.direnv.enable = true;
   programs.wireshark.enable = true;
 
@@ -453,7 +455,8 @@ in
 
   networking.firewall = {
     enable = true;
-    # remove the extraCommands/extraStopCommands, they're not needed
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
   };
 
   boot.kernel.sysctl."net.bridge.bridge-nf-call-iptables" = 0;
