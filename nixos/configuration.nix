@@ -105,6 +105,14 @@
 
   virtualisation.docker = {
     enable = true;
+    daemon.settings = {
+      default-address-pools = [
+      {
+        base = "100.64.0.0/10";
+        size = 24;
+      }
+      ];
+    };
   };
 
   programs.nix-ld.enable = true;
@@ -245,11 +253,14 @@
       comma
       hurl
       net-tools
+      dig
       tree-sitter
 
       amazon-q-cli
       claude-code
       kiro-cli
+      pi-coding-agent
+      opencode
       # crush
 
       asciinema

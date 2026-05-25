@@ -9,10 +9,10 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     mcp-hub.url = "github:ravitemer/mcp-hub";
     gitlogue.url = "github:aryuuu/gitlogue-flake";
-    opencode.url = "github:anomalyco/opencode";
+    # opencode.url = "github:anomalyco/opencode";
   };
 
-  outputs = { self, nixpkgs, neovim-nightly-overlay, zen-browser, mcp-hub, gitlogue, opencode, ghostty, ... }: 
+  outputs = { self, nixpkgs, neovim-nightly-overlay, zen-browser, mcp-hub, gitlogue, ghostty, ... }: 
     let 
       system = "x86_64-linux";
       
@@ -36,7 +36,7 @@
                 zen-browser.packages.${system}.default
                 mcp-hub.packages.${system}.default
                 gitlogue.packages.${system}.default
-                opencode.packages.${system}.default
+                # opencode.packages.${system}.default
               ];
             }
             ./nixos/configuration.nix
