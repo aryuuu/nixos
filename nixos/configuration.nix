@@ -176,7 +176,6 @@ in
       alacritty
       foot
       # ghostty
-      # ghostty-bin
 
       # -- Editors --
       zed-editor
