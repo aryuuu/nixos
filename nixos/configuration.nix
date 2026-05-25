@@ -108,7 +108,8 @@
     daemon.settings = {
       default-address-pools = [
       {
-        base = "100.64.0.0/10";
+        # base = "100.64.0.0/10"; # this was introduced as a quick fix for an issue where we can't download some go packages from inside a docker image
+        base = "172.16.0.0/12"; # this is an attempt to fix docker bridge network when running kind's multi node setup locally
         size = 24;
       }
       ];
@@ -149,113 +150,27 @@
     description = "fatt";
     extraGroups = [ "networkmanager" "wheel" "docker" "video" "wireshark" ];
     packages = with pkgs; [
+      # -- Terminal Emulators --
       alacritty
+      foot
       # ghostty
       # ghostty-bin
-      fzf
-      slack
-      postman
+
+      # -- Editors --
+      zed-editor
+
+      # -- Browsers --
+      brave
+
+      # -- Programming Languages --
       go
-      herdr
       zig
       nodejs
       bun
-      brave
-      (pass-wayland.withExtensions (ext: [ 
-        ext.pass-otp 
-        ext.pass-update
-        ext.pass-file
-      ]))
-      kubectl
-      k9s
-      terraform
-      delta
-      telegram-desktop
-      dbeaver-bin
-      beekeeper-studio
-      mongodb-compass
-      robo3t
-      btop
-      fastfetch
-      zed-editor
-      discord
-      jq
-      yq-go
-      gum
-      ripgrep
-      nerd-fonts.droid-sans-mono
-      nerd-fonts.jetbrains-mono
-      jetbrains-mono
-      font-awesome
-      waybar
-      swaybg
-      swaylock-fancy
-      # rofi-wayland # this has been merged into rofi 
-      rofi
-      networkmanager_dmenu
-      dmenu-wayland
-      dunst
-      libnotify
-      zathura
-      pandoc
-      sioyek
-      cliphist
-      wl-clipboard
-      file
-      bluez
-      wf-recorder
-      wl-kbptr
-      gimp
-      ffmpeg
-      blender
-      godot
-      lorien
-      drawing
-      gromit-mpx
-      grim
-      slurp
-      swappy
-      tesseract
       python3
       cargo
-      ranger
-      ueberzugpp
-      imagemagick
-      zbar
-      lf
-      aws-vault
-      chamber
-      bat
-      pulseaudio
-      pavucontrol
-      awscli2
-      extract_url
-      mpv
-      feh
-      tealdeer
-      redli
-      wireshark
-      termshark
-      nmap
-      binwalk
-      jujutsu
-      jjui
-      gh
-      docker-compose
-      lazydocker
-      ducker
-      croc
-      pre-commit
-      markdown-link-check
-      trufflehog
-      tflint
-      shellcheck
-      comma
-      hurl
-      net-tools
-      dig
-      tree-sitter
 
+      # -- AI / Coding Agents --
       amazon-q-cli
       claude-code
       kiro-cli
@@ -263,8 +178,139 @@
       opencode
       # crush
 
+      # -- Git & VCS --
+      jujutsu
+      jjui
+      gh
+      pre-commit
+      delta
+
+      # -- CLI Utilities --
+      fzf
+      jq
+      yq-go
+      gum
+      ripgrep
+      bat
+      tealdeer
+      file
+      tree-sitter
+      comma
+      fastfetch
+      btop
+      ranger
+      lf
+      ueberzugpp
+
+      # -- DevOps / Cloud --
+      kubectl
+      k9s
+      kubectx
+      kubie
+      kind
+      hubble
+      cilium-cli
+      terraform
+      tflint
+      aws-vault
+      chamber
+      awscli2
+      docker-compose
+      lazydocker
+      ducker
+
+      # -- Database Tools --
+      dbeaver-bin
+      beekeeper-studio
+      mongodb-compass
+      robo3t
+      redli
+      postgresql
+
+      # -- API / HTTP --
+      postman
+      hurl
+
+      # -- Networking & Security --
+      wireshark
+      termshark
+      nmap
+      binwalk
+      net-tools
+      dig
+      trufflehog
+      shellcheck
+      croc
+
+      # -- Password Management --
+      (pass-wayland.withExtensions (ext: [ 
+        ext.pass-otp 
+        ext.pass-update
+        ext.pass-file
+      ]))
+
+      # -- Wayland / Desktop --
+      waybar
+      swaybg
+      swaylock-fancy
+      rofi # rofi-wayland has been merged into rofi
+      networkmanager_dmenu
+      dmenu-wayland
+      dunst
+      libnotify
+      cliphist
+      wl-clipboard
+      wl-kbptr
+      wf-recorder
+
+      # -- Screenshot & OCR --
+      grim
+      slurp
+      swappy
+      tesseract
+      zbar
+      imagemagick
+
+      # -- Media & Graphics --
+      gimp
+      ffmpeg
+      blender
+      mpv
+      feh
+      drawing
+      gromit-mpx
+
+      # -- Gamedev --
+      godot
+      lorien
+
+      # -- Documents --
+      zathura
+      pandoc
+      sioyek
+      markdown-link-check
+
+      # -- Audio & Bluetooth --
+      pulseaudio
+      pavucontrol
+      bluez
+
+      # -- Communication --
+      slack
+      telegram-desktop
+      discord
+
+      # -- Fonts --
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.jetbrains-mono
+      jetbrains-mono
+      font-awesome
+
+      # -- Misc --
       asciinema
       ngrok
+      extract_url
+      herdr
     ];
 
     shell = pkgs.fish;
@@ -372,6 +418,13 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  networking.firewall = {
+    enable = true;
+    # remove the extraCommands/extraStopCommands, they're not needed
+  };
+
+  boot.kernel.sysctl."net.bridge.bridge-nf-call-iptables" = 0;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
