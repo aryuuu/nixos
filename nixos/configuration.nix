@@ -80,12 +80,24 @@ in
     variant = "";
   };
 
-  # gaming configs
+  # GPU / graphics
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      libvdpau-va-gl  # VDPAU via VA-API
+    ];
   };
   services.xserver.videoDrivers = ["amdgpu"];
+
+  # CPU power management — schedutil scales frequency dynamically with load
+  powerManagement.cpuFreqGovernor = "schedutil";
+
+  # zram swap — compresses memory instead of hitting disk, helps with 16GB
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -405,7 +417,8 @@ in
 
   environment.sessionVariables = {
     EDITOR = "nvim";
-    NIXOS_OZONE_WL = "1"; 
+    NIXOS_OZONE_WL = "1";
+    LIBVA_DRIVER_NAME = "radeonsi";  # VA-API hardware video decode for AMD
   };
 
   # Some programs need SUID wrappers, can be configured further or are
