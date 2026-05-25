@@ -331,6 +331,7 @@
 
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
     xwayland.enable = true;
   };
 
@@ -344,20 +345,6 @@
         "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
       };
-    };
-  };
-
-  # xdg-desktop-portal 1.22+ requires graphical-session.target which
-  # Hyprland (without UWSM) never activates. This service pulls it in
-  # when started from Hyprland's exec-once.
-  systemd.user.services.hyprland-graphical-session = {
-    description = "Activate graphical-session.target for Hyprland";
-    wants = [ "graphical-session.target" ];
-    before = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "/run/current-system/sw/bin/true";
     };
   };
   security.polkit.enable = true;
