@@ -100,6 +100,8 @@
     #media-session.enable = true;
   };
 
+  systemd.user.services.mpris-proxy.wantedBy = [ "default.target" ];
+
   virtualisation.docker = {
     enable = true;
   };
@@ -228,6 +230,9 @@
       ducker
       croc
       pre-commit
+      markdown-link-check
+      trufflehog
+      tflint
       shellcheck
       comma
       hurl
