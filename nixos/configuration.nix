@@ -158,6 +158,7 @@
 
       # -- Editors --
       zed-editor
+      vscode
 
       # -- Browsers --
       brave
@@ -201,6 +202,7 @@
       ranger
       lf
       ueberzugpp
+      openssl
 
       # -- DevOps / Cloud --
       kubectl
@@ -222,7 +224,6 @@
 
       # -- Database Tools --
       dbeaver-bin
-      beekeeper-studio
       mongodb-compass
       robo3t
       redli
@@ -323,6 +324,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+  programs.browserpass.enable = true;
   programs.steam = {
      enable = true;
   };
@@ -380,6 +382,7 @@
     d2coding
     gcc
     unzip
+    unrar
     ponymix
     openvpn3
     psmisc
