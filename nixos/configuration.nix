@@ -176,7 +176,7 @@
       claude-code
       kiro-cli
       pi-coding-agent
-      opencode
+      # opencode
       # crush
 
       # -- Git & VCS --
@@ -386,6 +386,8 @@
     unrar
     ponymix
     openvpn3
+    openconnect
+    gpclient
     psmisc
     brightnessctl
     # libsForQt5.bismuth
