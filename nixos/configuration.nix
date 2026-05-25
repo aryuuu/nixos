@@ -208,6 +208,7 @@
       kubectx
       kubie
       kind
+      kubernetes-helm
       hubble
       cilium-cli
       terraform
@@ -230,6 +231,7 @@
       # -- API / HTTP --
       postman
       hurl
+      plow
 
       # -- Networking & Security --
       wireshark
@@ -311,6 +313,8 @@
       ngrok
       extract_url
       herdr
+      glow
+      go-grip
     ];
 
     shell = pkgs.fish;
