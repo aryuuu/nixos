@@ -148,6 +148,7 @@
       slack
       postman
       go
+      herdr
       zig
       nodejs
       bun
