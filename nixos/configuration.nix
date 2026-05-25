@@ -204,7 +204,8 @@
       python3
       cargo
       ranger
-      ueberzug
+      ueberzugpp
+      imagemagick
       zbar
       lf
       aws-vault
