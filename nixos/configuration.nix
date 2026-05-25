@@ -199,6 +199,7 @@
       gimp
       ffmpeg
       blender
+      godot
       lorien
       drawing
       gromit-mpx
