@@ -199,6 +199,7 @@
       blender
       lorien
       drawing
+      gromit-mpx
       grim
       slurp
       swappy
