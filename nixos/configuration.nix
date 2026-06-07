@@ -186,6 +186,7 @@
       dunst
       libnotify
       zathura
+      pandoc
       sioyek
       cliphist
       wl-clipboard
