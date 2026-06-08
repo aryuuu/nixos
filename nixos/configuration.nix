@@ -38,6 +38,7 @@
       127.0.0.1 localhost
       ::1 localhost
       127.0.0.2 nixos
+      127.0.0.1 notes.local
       192.53.117.45 linode-aryuuu
     '' + ''
 
@@ -319,6 +320,18 @@
   # };
 
   # List services that you want to enable:
+  # Vimwiki local wiki server
+  services.caddy = {
+    enable = true;
+    virtualHosts."notes.local" = {
+      listenAddresses = [ "127.0.0.1" ];
+      extraConfig = ''
+      tls internal
+      root * /srv/wiki
+      file_server browse
+      '';
+    };
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
