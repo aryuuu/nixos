@@ -245,6 +245,7 @@
 
       amazon-q-cli
       claude-code
+      kiro-cli
       # crush
 
       asciinema
